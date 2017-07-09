@@ -1,0 +1,47 @@
+page-cashing {
+    .content{
+        background:#eaeaea;
+    }
+.forma{
+    margin-right: auto;
+    margin-left: auto;
+    width: 90%;
+    margin-top: 15px;
+    position: absolute;
+    right: 5%;
+    top: 5%;
+}
+.label {
+    margin: 13px 8px ;
+    }
+.formitem ,.green{
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid gray;
+    direction: rtl;
+    border-radius: 8px;
+    background:white;
+    margin-bottom: 15px;
+}
+.green{
+    background-color:transparent;
+    color:green;
+}
+.payment{
+    background-color: black;
+    color: white;
+}
+.select-ios {
+    padding: 0; 
+}
+.button{
+    color:black;
+    height: 50px;
+    font-size: 25px;
+    background-color: #ffaa09;
+    margin-right: auto;
+    margin-left: auto;
+    border: 2px solid white;
+    border-radius: 8px;
+}
+}

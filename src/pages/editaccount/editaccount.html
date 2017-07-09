@@ -1,0 +1,46 @@
+<!--
+  Generated template for the Editaccount page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ "Edit Account" | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+     <form class="forma" #f="ngForm"  (ngSubmit)="customerUpdate(f.value)">
+        <ion-item class="language">
+            <ion-label> {{ 'Choose Language' | translate }} </ion-label>
+            <ion-select #select (ionChange)="changeLang(select.value)">
+              <ion-option value="en">English</ion-option>
+              <ion-option value="ar">عربى</ion-option>
+            </ion-select>
+       </ion-item>
+        <ion-item class="formitem" style="background-image:url('assets/imgs/man.png')">
+          <ion-input [ngModel]="customerService.customer.username" name="username" required type="text" placeholder="{{ 'User Name' | translate}}"></ion-input>
+        </ion-item>
+        <ion-item class="formitem" style="background-image:url('assets/imgs/phone.png')">
+        <!--<span> <ion-icon ios="ios-phone-portrait" md="md-phone-portrait"></ion-icon></span>-->
+          <ion-input [ngModel]="customerService.customer.mobile" name="mobile" required  type="number" placeholder="{{ 'Mobile No' | translate}}"></ion-input>
+        </ion-item>
+        <ion-item class="formitem" style="background-image:url('assets/imgs/env.png');" >
+          <ion-input [ngModel]="customerService.customer.email" name="email" required type="email" placeholder="{{ 'Email' | translate}}"></ion-input>
+        </ion-item>
+        <ion-item class="formitem" style="background-image:url('assets/imgs/lock.png')">
+          <ion-input #password ngModel name="password" required type="password" placeholder="{{ 'Password' | translate}}"></ion-input>
+        </ion-item>
+        <ion-item class="formitem" style="background-image:url('assets/imgs/lock.png')">
+          <ion-input #confirm_password ngModel name="confirm_password" required type="password" placeholder="{{ 'Confirm Password' | translate}}"></ion-input>
+        </ion-item>
+        <ion-item class="formitem" style="background-image:url('assets/imgs/f.png')">
+          <ion-input [ngModel]="customerService.customer.address"  name="address" required type="text" placeholder="{{ 'Address' | translate}}"></ion-input>
+        </ion-item>
+        <button [disabled]="!f.valid || password.value != confirm_password.value" ion-button block type="submit">  {{ 'Confirm' | translate}}</button>
+ </form>
+</ion-content>

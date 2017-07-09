@@ -1,0 +1,38 @@
+page-activation {
+  .content{
+    background-color:#a4144d;
+  ;
+    direction: rtl;
+  }
+  .forma{
+    margin-right: auto;
+    margin-left: auto;
+    width: 90%;
+  }
+  .formitem{
+
+    margin-right: auto;
+    margin-left: auto;
+    border: 1;
+    direction: rtl;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  .btnactive{
+    color: black;
+    height: 50px;
+    font-size: 25px;
+    background-color: #ffb300;
+    margin-right: auto;
+    margin-left: auto;
+    border: 2px solid white;
+    border-radius: 8px;
+
+  }
+  .resend{
+    color:white;
+    ion-icon{
+      padding: 0 10px;
+    }
+  }
+}

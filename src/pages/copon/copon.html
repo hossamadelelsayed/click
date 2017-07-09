@@ -1,0 +1,34 @@
+<!--
+  Generated template for the Copon page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{'Coupon' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+ <form class="forma" #f="ngForm">
+    <ion-item class="formitem">
+      <ion-input #coupon type="text" ngModel name="coupon" placeholder="الكوبون" required></ion-input>
+    </ion-item>
+    <button [disabled]="!f.valid" ion-button block class="add" (click)="applyCoupon(coupon.value)">{{ 'Add' | translate}}</button>
+    <br><hr><br>
+   <!--
+    <button class="copon" ion-button block>
+       <span class="right">كوبون صالون كليك </span>
+       <span class="left"> خصم 30% </span>
+    </button>
+    <button class="copon" ion-button block>
+       <span class="right">كوبون صالون كليك </span>
+       <span class="left">خصم 30% </span>
+    </button>
+    -->
+ </form>
+</ion-content>

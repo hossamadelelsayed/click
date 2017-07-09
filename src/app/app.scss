@@ -1,0 +1,76 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+.button{
+  text-transform: none;
+}
+.item-md{
+  padding-left: 0;
+}
+.alert-md .alert-wrapper{
+  border-radius: 15px !important;
+  background-color: #f7ecec;
+}
+.alert-md .alert-button{
+  margin-right: auto;
+  margin-left: auto;
+  border: 3px solid white;
+  background: #ffc200;
+  color: black;
+
+  border-radius: 15px;
+}
+
+.alert-md .alert-input{
+  border: 1px solid #b1acac;
+  border-radius: 10px;
+  padding:10px 5px;
+}
+.toolbar-background{
+  background: #a4144d;
+}
+.list {
+  background: white !important;
+}
+.toolbar-title{
+  color: white;
+}
+.back-button.show-back-button{
+  color:white;
+}
+.item.item-block .item-inner{
+  border-bottom: none;
+}
+.toolbar,.toolbar-background{
+  box-shadow: 0;
+  border-bottom: 0!important;
+}
+.menubtn{
+  display: block;
+  text-transform: none;
+}
+* {
+  font-family: 'Comic Sans MS';
+}
+.alert-md .alert-button .button-inner{
+  justify-content: center;
+}
+[dir="rtl"] ion-menu[side=right] > .menu-inner{
+  right: 0;
+}
+[dir="rtl"] ion-input{
+  margin-right: 10px;
+}

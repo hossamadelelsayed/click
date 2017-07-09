@@ -1,0 +1,46 @@
+page-notification {
+  .content{
+    background-color:#f1eeee;
+}
+.divcont{
+    width: 95%;
+    border: 1px solid lightgray;
+    border-radius: 7px;
+    margin-left: auto;
+    height: 150px;
+    max-height: 150px;
+    color: #797575;
+    margin-top: 15px;
+    margin-right: auto;
+    background: white;
+    p{
+         font-size:16px;
+         margin: 0;
+         padding: 0 7px 2px;
+
+    }
+}
+ul{
+    margin: 0;
+    width: 50%;
+    float: left;
+    li{
+        font-size: 16px;
+        width: 80px;
+        color: green;
+        float: left;
+    }
+    
+}
+.headrow{
+        border-bottom: 1px solid lightgray;
+        color:green;
+        
+}
+.info{
+     padding:10px 3px;
+    p{
+    padding:2px 15px;
+    font-size:12px;
+}}
+}

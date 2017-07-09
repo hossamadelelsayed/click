@@ -1,0 +1,175 @@
+<!--
+  Generated template for the Salondetails page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+        <span> {{ 'Salons' | translate}} </span>
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-row class="titlediv">
+   <ion-col col-9 class="rightdiv">
+     <h4>{{salonDetails?.title}}</h4>
+     <h6>{{salonDetails?.address}}</h6>
+   </ion-col>
+   <ion-col col-3 class="leftdiv">
+   <ion-icon ios="ios-heart-outline" md="md-heart-outline" (click)="addFavorit()" *ngIf="customerService.customer != null"></ion-icon>
+   </ion-col>
+  </ion-row>
+    <ion-slides dir="ltr">
+        <ion-slide
+          *ngFor="let image of salonDetails?.images"
+          style="background-size: cover;" [style.background-image]="getBackground(image.picpath)" >
+        </ion-slide>
+  </ion-slides>
+
+   <div dir="rtl">
+      <ion-segment [(ngModel)]="salondetails">
+        <ion-segment-button value="services">
+          <img class="imagesegment" src="assets/imgs/rr.png">
+          {{ 'Main Services' | translate}}
+        </ion-segment-button>
+        <ion-segment-button value="homeserveices">
+          <img class="imagesegment" src="assets/imgs/hairdresser.png">
+          {{ 'Home Services' | translate}}
+        </ion-segment-button>
+        <ion-segment-button value="comments">
+          <img class="imagesegment" src="assets/imgs/information.png">
+          {{ 'Comments' | translate}}
+        </ion-segment-button>
+      </ion-segment>
+  </div>
+
+
+
+<div [ngSwitch]="salondetails">
+  <div dir="rtl" *ngSwitchDefault class="total">
+        <p class="servicename" *ngFor="let service of salonServices" (click)="servicedetail(service.service_id,salonService.ServiceCode)">{{service.title}}
+          <ion-icon ios="ios-arrow-back" md="md-arrow-forward"></ion-icon>
+        </p>
+      <div>
+         <div  class="status">
+            <p>{{ 'Status' | translate}}</p>
+            <img src="assets/imgs/open.png">
+         </div>
+         <div class="maplocation" (click)="showMap()">
+            <p>{{ 'Map' | translate}}</p>
+            <img src="assets/imgs/map.png">
+         </div>
+       </div>
+  </div>
+  <div dir="rtl" *ngSwitchCase="'homeserveices'" class="homeserv">
+
+
+        <ion-row class="servrow">
+          <ion-col col-6 class="colbord">
+            <h6>{{ 'Service' | translate }}</h6>
+          </ion-col>
+          <!--<ion-col col-4 style="text-align:left">
+             <h6>{{ 'Desginer' | translate}}</h6>
+          </ion-col>-->
+          <ion-col col-6 class="adding colbord">
+             <h6>{{ 'Add' | translate}}</h6>
+          </ion-col>
+        </ion-row>
+
+     <ion-row *ngFor="let category of salonHomeServicesCat">
+          <ion-col col-6 class="colbord">
+            <p>{{category.title}}</p>
+          </ion-col>
+       <!--<ion-col col-4 class="left">
+             <p>{{category.designer}}</p>
+          </ion-col>-->
+          <ion-col col-6 class="order colbord">
+             <ion-icon ios="ios-arrow-back" md="md-arrow-forward" (click)="servicedetail(category.service_id,salonService.HomeServiceCode)"></ion-icon>
+          </ion-col>
+        </ion-row>
+
+
+  </div>
+  <div dir="rtl" *ngSwitchCase="'comments'" class="homeserv">
+
+        <ion-row class="para">
+            <ion-col col-12>
+                <p>{{salonDetails?.summary}}</p>
+            </ion-col>
+        </ion-row>
+
+        <ion-row class="para">
+            <ion-col col-6>
+              <p>{{ 'Avaliable' | translate}}</p>
+            </ion-col>
+            <ion-col col-6 class="left">
+              <p *ngFor="let work_time of salonDetails?.work_times">{{work_time.title}}</p>
+            </ion-col>
+        </ion-row>
+
+
+
+        <ion-row class="para">
+            <ion-col col-6>
+              <p>{{ 'Desginers' | translate}}</p>
+            </ion-col>
+            <ion-col col-6 class="left">
+              <p>
+                <span *ngFor="let designer of salonDesigners">{{designer.name}}/</span>
+              </p>
+            </ion-col>
+        </ion-row>
+
+
+        <ion-row class="para">
+            <ion-col col-6>
+              <p>{{ 'Address' | translate}}</p>
+            </ion-col>
+            <ion-col col-6 class="left">
+              <p>{{salonDetails?.address}}</p>
+            </ion-col>
+        </ion-row>
+
+
+        <ion-row class="para">
+            <ion-col col-6>
+              <p>{{ 'Contact US' | translate}}</p>
+            </ion-col>
+            <ion-col col-6 class="left">
+              <p>{{salonDetails?.mobile}}</p>
+            </ion-col>
+        </ion-row>
+
+
+          <ion-row class="comment">
+            <ion-col col-12>
+              <p>{{ 'Comments' | translate}}</p>
+            </ion-col>
+        </ion-row>
+
+          <ion-row class="para" *ngFor="let comment of salonComments">
+            <ion-col col-6>
+              <p>{{comment.comment}}</p>
+            </ion-col>
+            <ion-col col-6 class="left">
+              <p style="color:#b32470">{{comment.member}}</p>
+            </ion-col>
+        </ion-row>
+
+        <div style="height:75px">
+          <form #f="ngForm">
+            <ion-input [(ngModel)]="addCom" id="addcom" name="addCom" maxlength="35" type="text" placeholder="اكتب تعليق"></ion-input>
+            <button [disabled]="customerService.customer == null || addCom == '' || addCom == null" ion-button block (click)="addComment(addCom)"> {{ 'Add' | translate}}
+            </button>
+          </form>
+        </div>
+       </div>
+
+</div>
+</ion-content>

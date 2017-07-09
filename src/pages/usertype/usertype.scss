@@ -1,0 +1,47 @@
+page-usertype {
+    .content{
+      background-image: url('../assets/imgs/user.png');
+      direction:rtl;
+      background-size: cover;
+
+    }
+   
+.cont1{
+    border: 2px solid white;
+    margin-right: 10%;
+    margin-bottom: 5%;
+    width: 45% !important;
+    max-width: 55% !important;
+    padding: 0px 15px;
+    border-radius: 30px;
+    background-color:#ea3e94;
+     h5{
+        color:white;
+        font-size: 30px;
+    }
+    .button{
+        color: white;
+        margin: 0;
+       
+    }
+}
+.cont2{
+    margin-right: 10%;
+    width: 45% !important;
+    max-width: 55% !important;
+    padding: 0px 15px;
+    border-radius: 30px;
+    border: 2px solid #e642c9;
+    background-color:white;
+     h5{
+        color:black;
+        font-size: 30px;
+
+    }
+      .button{
+        color:gray;
+         margin: 0;
+       
+    }
+}
+}

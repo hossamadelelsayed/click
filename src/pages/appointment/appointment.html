@@ -1,0 +1,39 @@
+<!--
+  Generated template for the Appointment page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>المواعيد</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div *ngFor="let order of history" class="divcont" dir="rtl">
+    <ion-row class="headrow">
+      <ion-col col-6><p>صالون كليك</p></ion-col>
+      <ion-col col-6>
+        <ul>
+          <li *ngIf="order.status == 'pending'">غير مؤكد</li>
+          <li *ngIf="order.status != 'pending'" style="color:green"> مؤكد</li>
+        </ul>
+      </ion-col>
+    </ion-row>
+
+    <div class="info">
+      <p>{{order.reservation_date}}</p>
+      <p>{{order.reservation_time}}</p>
+      <div *ngFor="let service of order.orders">
+        <p>{{service.title}}</p>
+        <p> {{'Desginer' | translate }}  : {{service.designer}}</p>
+        <p> {{'Salons' | translate }}  : {{service.salone}}</p>
+        <p>{{'Price' | translate}} : {{service.price}}</p>
+      </div>
+    </div>
+  </div>
+</ion-content>

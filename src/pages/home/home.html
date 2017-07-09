@@ -1,0 +1,181 @@
+<!--
+  Generated template for the Home page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+
+      <ion-icon  class="menu"ios="ios-menu" md="md-menu" (click)="toggleMenu()"></ion-icon>
+        <img src="assets/imgs/logooo.png" height="26px">
+      <ion-icon class="search"ios="ios-search" md="md-search"></ion-icon>
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="action-sheets-basic-page">
+  <div>
+    <ion-segment [(ngModel)]="khadmat" >
+      <ion-segment-button value="offers" >
+        <img class="imagesegment" src="assets/imgs/percentage1.png">
+        {{ 'Offers' | translate}}
+      </ion-segment-button>
+      <ion-segment-button value="salons" >
+        <img class="imagesegment" src="assets/imgs/barbershop.png">
+        {{ 'Salons' | translate}}
+      </ion-segment-button>
+      <ion-segment-button value="homeserveices">
+        <img class="imagesegment" src="assets/imgs/home1.png">
+       {{ 'Home Services' | translate}}
+      </ion-segment-button>
+    </ion-segment>
+</div>
+
+ <ion-slides dir="ltr" *ngIf="khadmat != 'salons' && khadmat != 'homeserveices'">
+
+  <ion-slide style="background-image:url('assets/imgs/a.jpg')">
+    <h2>Slide 1</h2>
+  </ion-slide>
+
+  <ion-slide style="background-image:url('assets/imgs/s.jpg')">
+    <h2>Slide 2</h2>
+  </ion-slide>
+
+   <ion-slide style="background-image:url('assets/imgs/d.jpg')">
+    <h2>Slide 3</h2>
+  </ion-slide>
+</ion-slides>
+
+
+
+
+<div [ngSwitch]="khadmat">
+  <div *ngSwitchDefault >
+      <div class="contoffer">
+       <h6><img src="assets/imgs/percentage.png">  {{'Month Offers' | translate}} <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon></h6>
+        <ion-scroll direction="y">
+            <img *ngFor="let offer of offers"  [src]="offer.picpath" (click)="openSalon(offer.salon_id)">
+        </ion-scroll>
+      </div>
+      <div class="contoffer">
+        <h6><img src="assets/imgs/percentage.png">{{'Special Offers' | translate}} <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon></h6>
+          <ion-scroll direction="y">
+          <img *ngFor="let offer of offersFeature" [src]="offer.picpath" (click)="openSalon(offer.salon_id)">
+        </ion-scroll>
+      </div>
+      <div class="contoffer">
+        <h6><img src="assets/imgs/home.png"> {{'Best Designers' | translate}} <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon></h6>
+          <ion-scroll direction="y">
+            <img *ngFor="let designer of designers" [src]="designer.picpath" (click)="openSalon(designer.salon_id)">
+        </ion-scroll>
+    </div>
+      <div class="contoffer">
+        <h6><img src="assets/imgs/barber.png">{{'Main Services' | translate}} <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon></h6>
+          <ion-scroll direction="y">
+            <img *ngFor="let service of services" [src]="service.picpath">
+        </ion-scroll>
+      </div>
+  </div>
+
+  <div *ngSwitchCase="'salons'">
+    <ion-row  class="salonsrow">
+
+      <ion-col *ngFor="let salon of salons" col-6>
+        <div>
+        <img (click)="salonDetails(salon.salon_id)" [src]="salon.picpath" >
+        <!--<span>صالون كليك</span>-->
+        <p>{{salon.title}}</p>
+        <ion-row style="margin-top: -5px;">
+          <ion-col col-2 *ngFor="let icon of icons(salon.rate); let i = index" (click)="customerRate(salon.salon_id,i+1)">
+            <ion-icon [name]="icon" ></ion-icon>
+          </ion-col>
+
+          <ion-col col-2>
+            <ion-icon style="color: crimson;" ios="ios-home" md="md-home"></ion-icon>
+          </ion-col>
+        </ion-row>
+         </div>
+
+
+
+
+
+
+
+      </ion-col>
+
+    </ion-row>
+
+  </div>
+
+
+
+
+    <div *ngSwitchCase="'homeserveices'">
+       <ion-row class="salonsrow">
+
+       <ion-col *ngFor="let hservice of homeService" col-6>
+        <div>
+        <img [src]="hservice.picpath">
+        <!--<span>{{hservice.designer}}</span>-->
+        <p>{{hservice.job}}</p>
+        <ion-row>
+          <ion-col col-1>
+            <ion-icon ios="ios-star" md="md-star"></ion-icon>
+          </ion-col>
+          <ion-col col-1>
+             <ion-icon ios="ios-star" md="md-star"></ion-icon>
+          </ion-col>
+          <ion-col col-1>
+             <ion-icon ios="ios-star" md="md-star"></ion-icon>
+          </ion-col>
+          <ion-col col-1>
+             <ion-icon ios="ios-star" md="md-star"></ion-icon>
+          </ion-col>
+          <ion-col col-1>
+             <ion-icon ios="ios-star" md="md-star"></ion-icon>
+          </ion-col>
+          <ion-col col-7></ion-col>
+
+        </ion-row>
+         </div>
+      </ion-col>
+
+
+    </ion-row>
+    </div>
+
+
+</div>
+
+</ion-content>
+
+<ion-footer  >
+  <ion-row style="padding: 8px 0;">
+
+    <ion-col col-3 (click)="showMap()">
+      <a><ion-icon ios="ios-navigate" md="md-navigate" ></ion-icon></a><br>
+      <p>{{ 'Map' | translate}}</p>
+    </ion-col>
+    <ion-col col-3 (click)="showSearch()">
+      <a>  <ion-icon ios="ios-arrow-round-down" md="md-arrow-round-down"></ion-icon>
+        <ion-icon ios="ios-list" md="md-list"></ion-icon>
+      </a><br>
+      <p>{{ 'Sort' | translate}}</p>
+    </ion-col>
+    <ion-col col-3 (click)="showAppointment()">
+      <a><ion-icon ios="ios-clock" md="md-clock"></ion-icon></a><br>
+      <p>{{ 'Appointment' | translate}}</p>
+    </ion-col>
+    <ion-col col-3 (click)="showNotification()">
+      <a><ion-icon ios="ios-notifications" md="md-notifications"></ion-icon></a><br>
+        <p>{{ 'Notification' | translate}}</p>
+    </ion-col>
+  </ion-row>
+</ion-footer>

@@ -1,0 +1,56 @@
+page-login {
+.content{
+    background-image: url("../assets/imgs/login.png");
+    background-size: cover;
+}
+.forma{
+    margin-right: auto;
+    margin-left: auto;
+    width: 90%;
+    position: absolute;
+    top: 30%;
+    left: 5%;
+}
+.formitem{
+    // D5D9DB
+    background-repeat:no-repeat;
+    background-position:96%;
+    margin-right: auto;
+    margin-left: auto;
+    direction: rtl;
+    padding: 0 20px;
+    border: 1;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+.logbtn{
+    height: 50px;
+    font-size: 25px;
+    background-color: #ffaa09;
+    margin-right: auto;
+    margin-left: auto;
+    border: 2px solid white;
+    border-radius: 8px;
+}
+.signbtn{
+    height: 50px;
+    font-size: 25px;
+    background-color: #e33c76;
+    margin-right: auto;
+    margin-left: auto;
+    border: 2px solid white;
+    border-radius: 8px;
+}
+.forget{
+    float:right;
+    color:white;
+}
+.skip{
+        margin: 80px 15px;
+    float: right;
+    border: 1px solid white;
+    border-radius: 20px;
+    width: 30%;
+    color: white;
+}
+}

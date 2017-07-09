@@ -1,0 +1,164 @@
+<!--
+  Generated template for the Choosingservices page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ 'Payment' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div dir="rtl" class="contdiv">
+    <ion-row class="servrow">
+          <ion-col col-4>
+            <h6 style="color:#b32470;font-size: 18px;">{{ 'Selected Services' | translate}}</h6>
+          </ion-col>
+          <!--<ion-col col-3 class="left">-->
+             <!--<h6>السعر</h6>-->
+          <!--</ion-col>-->
+          <ion-col col-4 class="order">
+             <h6>العربون</h6>
+          </ion-col>
+          <ion-col col-4 class="order">
+            <h6>المصمم</h6>
+          </ion-col>
+        </ion-row>
+
+         <ion-row *ngFor="let order of orderDetails?.orders">
+          <ion-col col-4>
+            <p>{{order.title}}</p>
+          </ion-col>
+         <!--<ion-col col-3 class="left">-->
+             <!--<p>{{order.price}} ريال</p>-->
+          <!--</ion-col>-->
+          <ion-col col-4 class="order">
+            <p>{{order.price}} ريال</p>
+          </ion-col>
+           <ion-col col-4>
+             <ion-select (ionChange)="customerOrderDesignerUpdate(order.orders_id,order.designer_id)" [(ngModel)]="order.designer_id" >
+               <ion-option *ngFor="let designer of salonDesigners" value="{{designer.designer_id}}" >{{designer.name}}</ion-option>
+             </ion-select>
+           </ion-col>
+        </ion-row>
+  </div>
+
+ <div dir="rtl" class="contdiv">
+     <ion-row>
+          <ion-col col-4>
+            <p>{{ 'Services Price' | translate}}</p>
+          </ion-col>
+          <ion-col col-4>
+          </ion-col>
+          <ion-col col-4 class="order">
+            <p>{{orderDetails?.total}} ريال</p>
+          </ion-col>
+        </ion-row>
+
+         <ion-row>
+          <ion-col col-4>
+            <p>{{ 'Add Discount Coupon' | translate}}</p>
+          </ion-col>
+          <ion-col col-4>
+          </ion-col>
+          <ion-col col-4 class="order">
+           <ion-icon ios="ios-arrow-forward" md="md-arrow-forward" (click)="coponPage()"></ion-icon>
+          </ion-col>
+        </ion-row>
+      <ion-row>
+           <ion-col col-4>
+             <p></p>
+           </ion-col>
+           <ion-col col-4>
+           </ion-col>
+           <ion-col col-4 class="order">
+             <p>{{orderDetails?.discount}}  ريال</p>
+           </ion-col>
+         </ion-row>
+          <ion-row>
+          <ion-col col-4>
+            <p>{{ 'Price After Discount' | translate}}</p>
+          </ion-col>
+          <ion-col col-4>
+          </ion-col>
+          <ion-col col-4 class="order">
+            <p>{{orderDetails?.total - orderDetails?.discount}}  ريال</p>
+          </ion-col>
+        </ion-row>
+
+          <ion-row>
+          <ion-col col-4>
+            <p> {{"Deposit" | translate}}</p>
+          </ion-col>
+          <ion-col col-4>
+
+          </ion-col>
+          <ion-col col-4 class="order">
+            <p> {{orderDetails?.deposit}} {{'SAR' | translate}}</p>
+          </ion-col>
+        </ion-row>
+  </div>
+
+ <div dir="rtl" class="contdiv">
+     <ion-row>
+          <ion-col col-4>
+            <p>{{ 'Date' | translate}}</p>
+          </ion-col>
+         <ion-col col-4></ion-col>
+          <ion-col col-4 class="order">
+            <ion-icon name="arrow-dropdown"></ion-icon>
+          <ion-datetime displayFormat="YYYY-MM-DD" [(ngModel)]="date"></ion-datetime>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-4>
+            <p>{{ 'Time' | translate}}</p>
+          </ion-col>
+          <ion-col col-4></ion-col>
+          <ion-col col-4 class="order">
+            <ion-icon name="arrow-dropdown"></ion-icon>
+           <ion-datetime displayFormat="HH:mm" [(ngModel)]="time"></ion-datetime>
+          </ion-col>
+        </ion-row>
+       <ion-row *ngIf="service_code == salonService.HomeServiceCode">
+         <ion-col col-4>
+           <p>{{ 'Determine Your Location' | translate}}</p>
+         </ion-col>
+         <ion-col col-4></ion-col>
+         <ion-col col-4 class="order">
+           <ion-icon ios="ios-map" md="md-map" (click)="locateMe()"></ion-icon>
+         </ion-col>
+       </ion-row>
+  </div>
+
+  <div dir="rtl" class="paymentmethod">
+     <ion-row class="servrow">
+          <ion-col col-12>
+            <h6 style="color:#b32470">{{ 'Payment Method' | translate}}</h6>
+          </ion-col>
+    </ion-row>
+   <ion-list radio-group [(ngModel)]="payment">
+        <ion-item>
+          <ion-label>{{ 'Balance' | translate}}</ion-label>
+          <ion-radio checked="true" value="cash"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>{{ "Paypal Account" | translate}}</ion-label>
+          <ion-radio value="paypal"></ion-radio>
+        </ion-item>
+     </ion-list>
+  </div>
+  <button class="terms" ion-button clear (click)="terms()">
+    <ion-icon style="padding: 0 10px;" ios="ios-arrow-back" md="md-arrow-back" ></ion-icon>
+    {{ 'Terms Policy' | translate}}</button>
+  <button
+    [disabled]="!date || !time || !payment"
+    class="confirm" ion-button block (click)="checkout()"> {{ 'Send Order' | translate}} </button>
+
+</ion-content>

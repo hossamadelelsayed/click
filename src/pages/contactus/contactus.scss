@@ -1,0 +1,40 @@
+page-contactus {
+  .content{
+    background-color: #f1ebeb;
+  }
+  .forma{
+    margin-right: auto;
+    margin-left: auto;
+    width: 90%;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    direction: rtl;
+  }
+  .formitem{
+    background-repeat:no-repeat;
+    background-position:96%;
+    margin-right: auto;
+    margin-left: auto;
+    direction: rtl;
+    padding: 0 20px;
+    border: 1;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  .area{
+    border:1px solid gray;
+    border-radius: 10px;
+    background-color: white
+
+  }
+  .button{
+    background-color: #ffc312;
+    border-radius: 6px;
+    color: black;
+    font-size: larger;
+    margin-top: 5%;
+    border: 2px solid white;
+    height: 50px;
+  }
+}

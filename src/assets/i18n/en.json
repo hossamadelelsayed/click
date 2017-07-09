@@ -1,0 +1,18 @@
+{ "Service":"Service",
+  "Home": "Home",
+  "SignUp":"Sign Up",
+  "Login":"Login",
+  "LogOut": "Log Out",
+  "Success":"Success",
+  "Error":"There Is An Error",
+  "Map": "Map",
+  "Coupon Review Pls":"Coupon Review Pls",
+  "Location" : "Location",
+  "About Click" : "About Click" ,
+  "Contact US" : "Contact US",
+  "Lang" : "Lang" ,
+  "Terms" : "Terms",
+  "Activation" : "Activation Code",
+  "Confirm" : "Confirm" ,
+  "ReSend Code" : "ReSend Code"
+}

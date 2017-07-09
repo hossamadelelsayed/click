@@ -1,0 +1,188 @@
+page-salondetails {
+
+  .content{
+    background:#d1d1d1;
+  }
+  .segment{
+    height: 50px;
+    background: white;
+    .segment-button{
+      color:gray;
+      height: 100%;
+      padding-top: 1%;
+      text-transform: none;
+    }
+}
+.segment .segment-button.segment-activated{
+    border-bottom:3px solid #b32470;
+    color: #b32470;
+  text-transform: none;
+}
+.segment-ios .segment-button.segment-activated{
+    background-color: transparent;
+}
+.segment-ios .segment-button{
+    border:none;
+}
+.slides{
+    height: 37%;
+}
+.titlediv{
+    position: absolute;
+    top: 0%;
+    background-color: black;
+    z-index: 10;
+    color: white;
+    width: 100%;
+    opacity: .5;
+    height: 60px;
+    max-height: 60px;
+    direction: rtl;
+    h6,h4{
+          margin-top: 3px;
+          padding: 0 6px 3px 0;
+          margin-bottom: 0px;
+          line-height: 1.2;
+    }
+    .rightdiv{
+       width: 70%;
+    }
+    .leftdiv{
+        text-align: left;
+        padding: 15px;
+        color: #b32470;
+        font-size: 32px;
+       }
+
+}
+.total{
+        border: 1px solid lightgray;
+        margin: 16px;
+        background-color: #fbf7f7;
+
+}
+
+.servicename{
+  border-bottom: 1px solid lightgray;
+  padding:4px;
+  margin:0;
+  color:#716c6c;
+  background-color: white;
+  ion-icon{
+      float:left;
+  }
+}
+
+  .homeserv{
+    margin: 15px;
+    border: 1px solid lightgray;
+    background-color: white;
+    border-right: 1px solid #737373;
+
+}
+.servrow{
+  padding: 5px 0;
+}
+  .colbord{
+    border-bottom: 1px solid lightgray;
+  }
+[col-6]{
+    text-align: center;
+
+    ion-icon{
+
+        padding-left:17px;
+        float:left;
+        color: gray;
+    }
+    h6{
+        margin: 0;
+        color:#b32470;
+        font-size: 1.2rem;
+    }
+}
+  .imagesegment{
+    height: 20px;
+    padding-left: 3px;
+    padding-top: 3px;
+  }
+  .adding{
+    text-align:end !important;
+    padding:0 10px !important;
+  }
+.para{
+    border-bottom:1px solid lightgray;
+    padding: 5px;
+    p{
+       padding:0 10px;
+    }
+}
+.left{
+   text-align: left;
+    padding-left: 17px;
+}
+ p{
+        margin: 0;
+        color: gray;
+        font-size: 11px;
+
+    }
+[col-6]{
+    padding:0;
+}
+  .comment{
+    background-color:#d1d1d1;
+    height: 23px;
+
+    p{
+        float: right;
+        color:#b32470;
+        padding:0 10px;
+    }
+}
+#addcom{
+        border-top: 1px solid gray;
+        height: 50%;
+}
+  .button{
+    width: 25%;
+    height: 30px;
+    padding: 0 3px;
+    font-size: 12px;
+    margin-left: 5px;
+    float: left;
+    background-color: #3e3838;
+    border-radius: 5px;
+
+}
+.maplocation{
+      padding-top: 10px;
+      width: 50%;
+      float:left;
+      p{
+            width: 70%;
+            float: right;
+            padding-top: 7px;
+      }
+
+}
+.status{
+       padding-top: 10px;
+        width: 50%;
+       float: right;
+       p{
+            width: 70%;
+            padding-top: 8px;
+            float: right;
+       }
+}
+  [dir="rtl"] ion-input{
+   margin-right: 0 !important;
+  }
+  .input-cover {
+    position: static;
+    top : 100%;
+    width: 100%;
+    height: 100%;
+  }
+}
