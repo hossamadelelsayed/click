@@ -54,7 +54,7 @@
 <div [ngSwitch]="salondetails">
   <div dir="rtl" *ngSwitchDefault class="total">
         <p class="servicename" *ngFor="let service of salonServices" (click)="servicedetail(service.service_id,salonService.ServiceCode)">{{service.title}}
-          <ion-icon ios="ios-arrow-back" md="md-arrow-forward"></ion-icon>
+          <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
         </p>
       <div>
          <div  class="status">

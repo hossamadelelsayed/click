@@ -11,12 +11,19 @@ page-contactus {
     left: 5%;
     direction: rtl;
   }
+  .text-input-md {
+    margin-right: 15px;
+  }
+  
+[dir="rtl"] .text-input-ios {
+    margin-right: 10px;
+    margin-left: 8px;
+}
   .formitem{
     background-repeat:no-repeat;
     background-position:96%;
     margin-right: auto;
     margin-left: auto;
-    direction: rtl;
     padding: 0 20px;
     border: 1;
     border-radius: 8px;
@@ -37,4 +44,6 @@ page-contactus {
     border: 2px solid white;
     height: 50px;
   }
+  
+
 }

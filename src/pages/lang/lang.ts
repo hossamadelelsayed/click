@@ -26,15 +26,15 @@ export class Lang {
     console.log('ionViewDidLoad Lang');
   }
   changeLang(type){
+    this.navCtrl.push(Home);
     this.translate.setDefaultLang(type);
     MainService.lang = type;
-    if(type == 'en')
-       this.platform.setDir('ltr', true);
+    if(MainService.lang == 'en')
+      this.platform.setDir('ltr', true);
     else
       this.platform.setDir('rtl', true);
-    
     //this.navCtrl.push(Usertype);
-    this.navCtrl.push(Home);
+
   }
 
 }

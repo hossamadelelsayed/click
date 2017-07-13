@@ -9,28 +9,37 @@
 
   <ion-navbar>
     <ion-title>
-
-      <ion-icon  class="menu"ios="ios-menu" md="md-menu" (click)="toggleMenu()"></ion-icon>
-        <img src="assets/imgs/logooo.png" height="26px">
-      <ion-icon class="search"ios="ios-search" md="md-search"></ion-icon>
+      <ion-row>
+        <ion-col col-1>
+          <ion-icon  class="menu"ios="ios-menu" md="md-menu" (click)="toggleMenu()"></ion-icon>
+        </ion-col>
+        <ion-col col-10>
+          <img src="assets/imgs/logooo.png" height="26px">
+        </ion-col>
+        <ion-col col-1>
+          <ion-icon class="search"ios="ios-search" md="md-search"></ion-icon>
+        </ion-col>
+      </ion-row>
     </ion-title>
   </ion-navbar>
-
+<style>
+@import url('https://fonts.googleapis.com/css?family=Cairo');
+</style>
 </ion-header>
 
 
 <ion-content class="action-sheets-basic-page">
   <div>
     <ion-segment [(ngModel)]="khadmat" >
-      <ion-segment-button value="offers" >
+      <ion-segment-button style="font-family:'Cairo', sans-serif;" value="offers" >
         <img class="imagesegment" src="assets/imgs/percentage1.png">
         {{ 'Offers' | translate}}
       </ion-segment-button>
-      <ion-segment-button value="salons" >
+      <ion-segment-button style="font-family:'Cairo', sans-serif;"  value="salons" >
         <img class="imagesegment" src="assets/imgs/barbershop.png">
         {{ 'Salons' | translate}}
       </ion-segment-button>
-      <ion-segment-button value="homeserveices">
+      <ion-segment-button style="font-family:'Cairo', sans-serif;"  value="homeserveices">
         <img class="imagesegment" src="assets/imgs/home1.png">
        {{ 'Home Services' | translate}}
       </ion-segment-button>

@@ -63,6 +63,7 @@
   "Edit Account" : "تعديل حسابى" ,
   "Choose Language" : "اختار اللغة" ,
   "User Name" : "اسم المستخدم" ,
+  "Name":"الاسم",
   "Mobile No" : "رقم الجوال" ,
   "Email" : "البريد الالكترونى" ,
   "Confirm Password" : "تأكيد كلمة المرور" ,
@@ -74,5 +75,8 @@
   "Highest Rated" : "الاعلى تقييما" ,
   "Deliver Home Service" : "يقدم خدمة منزلية " ,
   "You Aleady Added To Your Favorite" : "بالفعل أضفت هذا الصالون للمفضلة" ,
-  "Yes" : "نعم"
+  "Yes" : "نعم",
+  "Subject":"الموضوع",
+  "Message":"الرسالة"
+
  }

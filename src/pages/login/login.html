@@ -12,11 +12,13 @@
  </div>
  <form class="forma" #f="ngForm">
    <ion-item class="formitem" style="background-image:url('assets/imgs/phone.png')" icon-right>
-     <ion-input [(ngModel)]="customer.mobile" name="mobile" type="number" placeholder="رقم الجوال" required></ion-input>
+     <ion-input [(ngModel)]="customer.mobile" name="mobile" type="number"
+      placeholder="{{'Mobile No'|translate}}" required></ion-input>
       <ion-icon ios="ios-phone-portrait" md="md-phone-portrait"></ion-icon>
    </ion-item>
   <ion-item class="formitem" style="background-image:url('assets/imgs/lock.png')">
-    <ion-input [(ngModel)]="customer.password" name="password" type="password" placeholder="كلمه المرور" required></ion-input>
+    <ion-input [(ngModel)]="customer.password" name="password" type="password"
+     placeholder="{{'Password'|translate}}" required></ion-input>
   </ion-item>
    <button [disabled]="!f.valid" class="logbtn" ion-button block  (click)="login()">{{'Confirm' | translate}}</button>
     <button  class="forget" ion-button clear (click)="showPrompt()">{{ 'Forget Password' | translate}}</button>

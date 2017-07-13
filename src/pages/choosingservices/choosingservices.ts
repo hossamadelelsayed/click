@@ -92,9 +92,9 @@ export class Choosingservices {
     }
    handle_success_checkout(res:any)
    {
-     if(this.payment == 'paypal')
+     /*if(this.payment == 'paypal')
           this.payPalPayment(res.total);
-     this.translateService.get('Success').subscribe(
+     */this.translateService.get('Success').subscribe(
        value => {
          // value is our translated string
          this.commonService.presentToast(value);

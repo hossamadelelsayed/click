@@ -7,13 +7,13 @@
     <ion-content class="list">
       <ion-list *ngIf="customerService.customer == null">
         <button class="menubtn" menuClose ion-item  *ngFor="let p of visitorPages"  (click)="openPage(p)">
-          &nbsp;&nbsp;<ion-icon name="{{p.icon}}"></ion-icon>
+          &nbsp;&nbsp;<ion-icon class="ico" name="{{p.icon}}"></ion-icon>
           {{ p.title | translate }}
         </button>
       </ion-list>
       <ion-list *ngIf="customerService.customer != null">
         <button class="menubtn" menuClose ion-item  *ngFor="let p of customerPages" (click)="openPage(p)">
-          &nbsp;&nbsp;<ion-icon name="{{p.icon}}"></ion-icon>
+          &nbsp;&nbsp;<ion-icon class="ico" name="{{p.icon}}"></ion-icon>
           {{ p.title | translate }}
         </button>
       </ion-list>
@@ -29,13 +29,13 @@
   <ion-content class="list">
     <ion-list *ngIf="customerService.customer == null">
       <button class="menubtn" menuClose ion-item  *ngFor="let p of visitorPages" (click)="openPage(p)">
-        &nbsp;&nbsp;<ion-icon name="{{p.icon}}"></ion-icon>
+        &nbsp;&nbsp;<ion-icon class="ico" name="{{p.icon}}"></ion-icon>
         {{ p.title | translate }}
       </button>
     </ion-list>
     <ion-list *ngIf="customerService.customer != null">
       <button class="menubtn" menuClose ion-item  *ngFor="let p of customerPages" (click)="openPage(p)">
-        &nbsp;&nbsp;<ion-icon name="{{p.icon}}"></ion-icon>
+        &nbsp;&nbsp;<ion-icon class="ico" name="{{p.icon}}"></ion-icon>
         {{ p.title | translate }}
       </button>
     </ion-list>

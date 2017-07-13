@@ -23,15 +23,8 @@ export class Home {
               public salonService: SalonService , public menuCtrl: MenuController ,
               public customerService : CustomerService , public commonService : CommonService ,
               public actionSheetCtrl: ActionSheetController , public platform : Platform) {
-
   }
 
-  getSalons()
-  {
-    this.salonService.salons().subscribe((res)=>{
-      this.salons = res;
-    });
-  }
   ionViewWillEnter(){
     this.getSalons();
     this.salonService.homeService().subscribe((res)=>{
@@ -53,7 +46,12 @@ export class Home {
 
   }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad Home');
+  }
+  getSalons()
+  {
+    this.salonService.salons().subscribe((res)=>{
+      this.salons = res;
+    });
   }
   salonDetails(salon_id){
     this.navCtrl.push(Salondetails,{salon_id:salon_id});
