@@ -31,7 +31,6 @@ page-signup {
     background-position:96%;
     margin-right: auto;
     margin-left: auto;
-    direction: rtl;
     padding: 0 20px;
     border: 1;
     border-radius: 8px;
@@ -48,4 +47,13 @@ page-signup {
     border-radius: 8px;
 
   }
+  .skip{
+     margin: 4px 15px;
+    float: right;
+    border: 1px solid white;
+    border-radius: 20px;
+    width: 30%;
+    color: white;
+}
+
 }

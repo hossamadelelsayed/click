@@ -4,7 +4,7 @@ import {CustomerService} from "../../providers/customer-service";
 import {CommonService} from "../../providers/common-service";
 import {TranslateService} from "@ngx-translate/core";
 import {Activation} from "../activation/activation";
-
+import {Home} from "../home/home";
 
 @Component({
   selector: 'page-signup',
@@ -49,5 +49,8 @@ export class Signup {
 
       }
     );
+  }
+  goToHome(){
+    this.navCtrl.push(Home);
   }
 }

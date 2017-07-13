@@ -1,4 +1,6 @@
 page-home {
+  @import url('https://fonts.googleapis.com/css?family=Cairo');
+    
   .action-sheets-basic-page {
     .ion-md-share {
       color: #ED4248;
@@ -29,14 +31,16 @@ page-home {
     text-align: center;
 }
    .menu{
-    position: absolute;
-    right: 10px;
-    top: 10px;
+    position: relative;
+    right: 0px;
+    float: right;
+    padding-top: 10px;
   }
   .search{
-    position: absolute;
-    left: 10px;
-    top: 10px;
+    position: relative;
+    right: 0px;
+    float: left;
+    padding-top: 10px;
   }
   .imagesegment{
     height: 20px;
@@ -47,36 +51,42 @@ page-home {
     height: 50px;
    background: white;
         .segment-button{
-        color:gray;
+        color:black;
         height: 80%;
-          text-transform: none;
+        text-transform: none;
+        font-family: 'Cairo';
     }
 }
 .segment .segment-button.segment-activated{
     border-bottom:3px solid #b32470;
     color: #b32470;
-    font-size: large;
-  text-transform: none;
+    text-transform: none;
+     font-family: 'Cairo', sans-serif;
 }
 .segment-ios .segment-button.segment-activated{
     background-color: transparent;
 }
 .segment-ios .segment-button{
     border:none;
+    
 }
 .slides{
     height: 30%;
 }
+
+
 h6{
 
     padding: 3% 5%;
     margin-bottom: -18px;
     margin-top:0px;
     color: #5a5757;
+    font-family: 'Cairo';
     img,ion-icon{
     position: relative;
     top: 4px;
     padding-left: 3px;
+    
     }
 
 }
@@ -180,6 +190,10 @@ h6{
 }
          font-size: 12px;
 
+}
+
+.ico{
+    font-weight: 600;
 }
  }
 }

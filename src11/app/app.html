@@ -1,0 +1,47 @@
+<ion-menu [content]="content" *ngIf="MainService.lang == 'ar'">
+  <ion-header>
+    <ion-toolbar  color="standard">
+      <ion-title>{{'Menu' | translate }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+    <ion-content class="list">
+      <ion-list *ngIf="customerService.customer == null">
+        <button class="menubtn" menuClose ion-item  *ngFor="let p of visitorPages"  (click)="openPage(p)">
+          &nbsp;&nbsp;<ion-icon name="{{p.icon}}"></ion-icon>
+          {{ p.title | translate }}
+        </button>
+      </ion-list>
+      <ion-list *ngIf="customerService.customer != null">
+        <button class="menubtn" menuClose ion-item  *ngFor="let p of customerPages" (click)="openPage(p)">
+          &nbsp;&nbsp;<ion-icon name="{{p.icon}}"></ion-icon>
+          {{ p.title | translate }}
+        </button>
+      </ion-list>
+  </ion-content>
+
+</ion-menu>
+<ion-menu [content]="content" side="left" *ngIf="MainService.lang == 'en'">
+  <ion-header>
+    <ion-toolbar  color="standard">
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="list">
+    <ion-list *ngIf="customerService.customer == null">
+      <button class="menubtn" menuClose ion-item  *ngFor="let p of visitorPages" (click)="openPage(p)">
+        &nbsp;&nbsp;<ion-icon name="{{p.icon}}"></ion-icon>
+        {{ p.title | translate }}
+      </button>
+    </ion-list>
+    <ion-list *ngIf="customerService.customer != null">
+      <button class="menubtn" menuClose ion-item  *ngFor="let p of customerPages" (click)="openPage(p)">
+        &nbsp;&nbsp;<ion-icon name="{{p.icon}}"></ion-icon>
+        {{ p.title | translate }}
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

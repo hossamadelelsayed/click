@@ -17,6 +17,10 @@
 .button{
   text-transform: none;
 }
+*{
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
 .item-md{
   padding-left: 0;
 }
@@ -73,4 +77,27 @@
 }
 [dir="rtl"] ion-input{
   margin-right: 10px;
+}
+.toolbar-ios ion-title{
+      padding-left: 10px;
+    padding-right: 10px;
+}
+[dir="rtl"] .text-input-ios {
+    margin-right: 10px !important;
+    margin-left: 8px;
+}
+// [dir="rtl"] .item {
+//   font-weight: bold !important;
+// }
+.ico{
+  font-weight: 600;
+
+}
+[dir="rtl"] .ico{
+  font-weight: 600;
+}
+ 
+@font-face{
+font-family: Cairo;
+src: url('../assets/fonts/Cairo.ttf') ;
 }

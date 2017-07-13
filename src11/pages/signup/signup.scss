@@ -1,0 +1,51 @@
+page-signup {
+  .content{
+    background-image: url("../assets/imgs/signup.png");
+    background-size: cover;
+  }
+  .titlediv{
+    height: 130px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    margin-left: auto;
+    top: 5%;
+    color: #ffaa09;
+    margin-right: auto;
+    h2{
+      font-size: 3.4rem;
+    }
+  }
+  .forma{
+    margin-right: auto;
+    margin-left: auto;
+    width: 90%;
+    margin-top: 8%;
+    position: absolute;
+    right: 5%;
+    top: 23%;
+  }
+
+  .formitem{
+    background-repeat:no-repeat;
+    background-position:96%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 20px;
+    border: 1;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  .button{
+    color: black;
+    height: 50px;
+    font-size: 25px;
+    background-color: #ffb300;
+    margin-right: auto;
+    margin-left: auto;
+    border: 2px solid white;
+    border-radius: 8px;
+
+  }
+
+}
