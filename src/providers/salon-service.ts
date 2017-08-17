@@ -65,6 +65,8 @@ export class SalonService {
   public SalonCommentsArUrl : string = MainService.baseUrl+"/api/ar/comments/salone/";
   public SalonCommentsEnUrl : string = MainService.baseUrl+"/api/en/comments/salone/";
 
+  public sliderImagesUrl : string = "http://www.click-qa.com/api/ar/slider";
+
   constructor(public http: Http) {
     console.log('Hello SalonService Provider');
   }
@@ -169,5 +171,8 @@ export class SalonService {
     if(MainService.lang == 'ar')
       return this.http.get(this.salonDesignersArUrl+salon_id).map((res) => res.json());
     else return this.http.get(this.salonDesignersEnUrl+salon_id).map((res) => res.json());
+  }
+  sliderImage (){
+       return this.http.get(this.sliderImagesUrl).map((res) => res.json());
   }
 }

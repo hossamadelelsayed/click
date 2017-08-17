@@ -1,5 +1,9 @@
 page-home {
   @import url('https://fonts.googleapis.com/css?family=Cairo');
+// .scroll-content{
+//     overflow-x: unset !important;
+//     overflow-y: unset !important;
+// }
 
   .action-sheets-basic-page {
     .ion-md-share {
@@ -34,8 +38,10 @@ page-home {
     position: relative;
     right: 0px;
     float: right;
-    padding-top: 10px;
+    //padding-top: 10px;
+     font-size: xx-large;
   }
+
   .search{
     position: relative;
     right: 0px;
@@ -178,10 +184,11 @@ h6{
                 color: #b32470;
        }
    }
- .footer
+ .footerdiv
  {   direction: rtl;
      height: 85px;
      background-color: white;
+     width: 100%;
      .row .col{
      text-align: center;
      padding:17px 0;
@@ -196,5 +203,11 @@ h6{
 .ico{
     font-weight: 600;
 }
+ }
+
+ .scrollingdiv{
+    height: 77%;
+    max-height: 77%;
+    overflow: scroll;
  }
 }

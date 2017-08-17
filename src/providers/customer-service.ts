@@ -29,6 +29,7 @@ export class CustomerService {
   public checkoutUrl : string = MainService.baseUrl+"api/checkout";
   public rechargeUrl : string = MainService.baseUrl+"api/recharge";
   public addFavoriteUrl : string = MainService.baseUrl+"api/add/favorite";
+  public delFavoriteUrl : string = MainService.baseUrl+"api/delete/favorite";
   public favoriteUrl : string = MainService.baseUrl+"api/favorite";
   public notificationsUrl : string = MainService.baseUrl+"api/notifications";
   public historyUrl : string = MainService.baseUrl+"api/history";
@@ -100,6 +101,13 @@ export class CustomerService {
       salon_id : salon_id
     };
     return this.http.post(this.addFavoriteUrl,body).map((res) => res.json());
+  }
+  delFavorite(favorite_id:number)
+  {
+    let body = {
+      favorite_id : favorite_id
+    };
+    return this.http.post(this.delFavoriteUrl,body).map((res) => res.json());
   }
   getFavorites()
   {
@@ -276,4 +284,5 @@ export class CustomerService {
         error => console.error(error)
       );
   }
+
 }

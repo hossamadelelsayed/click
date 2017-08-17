@@ -1,6 +1,7 @@
-import {Component, ViewChild, ElementRef} from '@angular/core';
+import {Component, ViewChild , ElementRef} from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {SalonService} from "../../providers/salon-service";
+import {Salondetails} from "../salondetails/salondetails";
 declare var google: any;
 
 
@@ -52,7 +53,7 @@ export class Map {
 
     let mapOptions = {
       center: latLng,
-      zoom: 10,
+      zoom:10,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
@@ -68,11 +69,11 @@ export class Map {
       array = this.salonsHomeServiceMap ;
     for (let i = 0; i < array.length; i++){
       let LatLng = new google.maps.LatLng(parseFloat(array[i].latitude),parseFloat(array[i].longitude));
-      this.addMarker(LatLng,array[i].address,code);
+      this.addMarker(array[i].salon_id,LatLng,array[i].address,code);
     }
 
   }
-  addMarker(LatLng,address,code){
+  addMarker(salon_id,LatLng,address,code){
     let image : string ;
     if(code == this.salonsMapCode)
       image = 'assets/imgs/salon.png' ;
@@ -86,6 +87,10 @@ export class Map {
       position: LatLng ,
       icon : { url : image }
     });
+    let self = this ;
+     marker.addListener('click', function() {
+          self.navCtrl.push(Salondetails,{salon_id:salon_id});
+        });
     google.maps.event.addListener(marker,'click',function() {
       var infowindow = new google.maps.InfoWindow({
         content:address

@@ -21,6 +21,7 @@ import {Salondetails} from "../pages/salondetails/salondetails";
 import {Servicedetails} from "../pages/servicedetails/servicedetails";
 import {Signup} from "../pages/signup/signup";
 import {Usertype} from "../pages/usertype/usertype";
+import {SalonmapPage} from "../pages/salonmap/salonmap";
 
 
 import { MyApp } from './app.component';
@@ -71,7 +72,8 @@ export function createTranslateLoader(http: Http) {
     Usertype,
     Favorites,
     Location,
-    Terms
+    Terms,
+    SalonmapPage
   ],
   imports: [
     BrowserModule,
@@ -108,7 +110,8 @@ export function createTranslateLoader(http: Http) {
     Usertype,
     Favorites,
     Location,
-    Terms
+    Terms,
+    SalonmapPage
   ],
   providers: [
     StatusBar,

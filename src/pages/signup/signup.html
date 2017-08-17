@@ -10,23 +10,44 @@
 
     <h2>{{ 'Create Account' | translate}}  <ion-icon ios="ios-person-add" md="md-person-add" ></ion-icon></h2>
   </div>
-  <div>
+ <div style="min-height: 600px;max-height: 600;overflow: scroll;">
      <form class="forma" #f="ngForm">
         <ion-item class="formitem" style="background-image:url('assets/imgs/man.png')">
-        <ion-input [(ngModel)]="customer.username" name="username" type="text" placeholder="{{'User Name'|translate}} " required></ion-input></ion-item>
-        <ion-item class="formitem" style="background-image:url('assets/imgs/phone.png')">
-        <ion-input [(ngModel)]="customer.mobile" name="mobile" type="number" placeholder="{{'Mobile No'|translate}}" required></ion-input></ion-item>
+          <ion-input autofocus [(ngModel)]="customer.username" name="username" type="text" placeholder="{{'User Name'|translate}} " required>
+          </ion-input>
+        </ion-item>
+       
+       
+        <ion-item class="callitem" style="background-image:url('assets/imgs/phone.png')">
+          <ion-input [(ngModel)]="customer.mobile" name="mobile" type="number" required placeholder="{{'Mobile No'|translate}} ">
+          </ion-input>
+       </ion-item>
+
+
+        <ion-item class="codeclass">974</ion-item>
         <ion-item class="formitem" style="background-image:url('assets/imgs/env.png')"> 
-        <ion-input [(ngModel)]="customer.email" name="email" type="email" placeholder="{{'Email'|translate}} " required></ion-input></ion-item>
+        <ion-input [(ngModel)]="customer.email" name="email" type="email" placeholder="{{'Email'|translate}} " required>
+          </ion-input>
+          </ion-item>
+        
         <ion-item class="formitem" style="background-image:url('assets/imgs/lock.png')"> 
-        <ion-input [(ngModel)]="customer.password" name="password" type="password" placeholder="{{'Password'|translate}}" required></ion-input></ion-item>
+          <ion-input [(ngModel)]="customer.password" name="password" type="password" placeholder="{{'Password'|translate}}" required>
+          </ion-input>
+        </ion-item>
+        
         <ion-item class="formitem" style="background-image:url('assets/imgs/lock.png')"> 
-        <ion-input [(ngModel)]="customer.confirm_password" name="confirm_password" type="password" placeholder="{{'Confirm Password'|translate}}" required></ion-input></ion-item>
+           <ion-input [(ngModel)]="customer.confirm_password" name="confirm_password" type="password" placeholder="{{'Confirm Password'|translate}}" required>
+           </ion-input>
+        </ion-item>
+        
         <ion-item class="formitem" style="background-image:url('assets/imgs/f.png')"> 
-        <ion-input [(ngModel)]="customer.address" name="address" type="text" placeholder="{{'Address'|translate}}" required></ion-input></ion-item>
-        <button [disabled]="!f.valid" ion-button block (click)="register()">{{'Confirm' | translate}}</button>
+          <ion-input [(ngModel)]="customer.address" name="address" type="text" placeholder="{{'Address'|translate}}" required>
+          </ion-input>
+        </ion-item>
+
+        <button class="register" [disabled]="!f.valid" ion-button block (click)="register()">{{'Confirm' | translate}}</button>
         <button class="skip" ion-button outline (click)="goToHome()">{{'Skip' | translate}}</button>
  </form>
-  </div>
+</div>
 </ion-content>
 <!--<span> <ion-icon ios="ios-phone-portrait" md="md-phone-portrait"></ion-icon></span>-->

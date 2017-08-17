@@ -23,6 +23,7 @@ export class Location {
   public markers = [];
   public lat : number = 0 ;
   public lng : number = 0;
+  public location :  any ;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private geolocation: Geolocation,
@@ -58,9 +59,9 @@ export class Location {
       this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
       google.maps.event.addListener(this.map, 'click', (event) => {
         this.setMapOnAll(null);
-        var location  = event.latLng;
-        this.addMarker(location);
-        this.sendCustomerLocation(location);
+        this.location  = event.latLng;
+        this.addMarker(this.location);
+        //this.sendCustomerLocation(location);
       });
       this.addMarker(this.map.getCenter());
     }).catch((error) => {

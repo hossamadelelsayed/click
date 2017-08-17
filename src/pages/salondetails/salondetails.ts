@@ -6,6 +6,7 @@ import {DomSanitizer} from "@angular/platform-browser";
 import {Map} from "../map/map";
 import {CustomerService} from "../../providers/customer-service";
 import {TranslateService} from "@ngx-translate/core";
+import {SalonmapPage} from "../salonmap/salonmap";
 import {CommonService} from "../../providers/common-service";
 
 @Component({
@@ -60,7 +61,7 @@ export class Salondetails {
   }
   showMap()
   {
-    this.navCtrl.push(Map);
+    this.navCtrl.push(SalonmapPage,{salon_id:this.salon_id});
   }
   addFavorit()
   {

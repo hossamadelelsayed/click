@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {NavController, NavParams, MenuController, ActionSheetController, Platform} from 'ionic-angular';
-import {Salondetails} from "../salondetails/salondetails"
+import {Salondetails} from "../salondetails/salondetails";
 import {SalonService} from "../../providers/salon-service";
 import {Map} from "../map/map";
 import {Appointment} from "../appointment/appointment";
@@ -16,6 +16,7 @@ export class Home {
   public offers : any ;
   public offersFeature : any ;
   public designers : any;
+  public sliders :any ;
   public services : any;
   public homeService : any ;
   public khadmat : any;
@@ -23,6 +24,7 @@ export class Home {
               public salonService: SalonService , public menuCtrl: MenuController ,
               public customerService : CustomerService , public commonService : CommonService ,
               public actionSheetCtrl: ActionSheetController , public platform : Platform) {
+               this.imageSlider();
   }
 
   ionViewWillEnter(){
@@ -51,10 +53,12 @@ export class Home {
   {
     this.salonService.salons().subscribe((res)=>{
       this.salons = res;
+      console.log(res);
     });
   }
   salonDetails(salon_id){
     this.navCtrl.push(Salondetails,{salon_id:salon_id});
+    console.log(this.salons);
   }
   toggleMenu()
   {
@@ -72,11 +76,17 @@ export class Home {
   {
     if(this.customerService.customer != null)
       this.navCtrl.push(Notification);
+    else{
+      this.commonService.translateAndToast("You Have To Login First");
+    }
   }
   showAppointment()
   {
     if(this.customerService.customer != null)
      this.navCtrl.push(Appointment);
+    else{
+      this.commonService.translateAndToast("You Have To Login First");
+    }
   }
   icons(rate : number)
   {
@@ -156,5 +166,10 @@ export class Home {
       this.salons = res ;
     });
   }
-
+  imageSlider(){
+    this.salonService.sliderImage().subscribe((res)=>{
+        this.sliders = res;
+        console.log(this.sliders);
+    });
+  }
 }

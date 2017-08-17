@@ -14,6 +14,9 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.search{
+  display: none;
+}
 .back-button-text-ios {
   letter-spacing: -.01em;
   display: none;
@@ -38,7 +41,6 @@
   border: 3px solid white;
   background: #ffc200;
   color: black;
-
   border-radius: 15px;
 }
 
@@ -69,10 +71,9 @@
 .menubtn{
   display: block;
   text-transform: none;
+  color: gray;
 }
-* {
-  font-family: 'Comic Sans MS';
-}
+
 .alert-md .alert-button .button-inner{
   justify-content: center;
 }
@@ -105,3 +106,32 @@
 font-family: Cairo;
 src: url('../assets/fonts/Cairo.ttf') ;
 }
+.callitem{
+    width: 70%;
+    float: right;
+     border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+[dir="rtl"] .callitem{
+    width: 70%;
+    float: left;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }  
+  .codeclass{
+    width: 30%;
+    float: left;
+    border-top-right-radius:0;
+    border-bottom-right-radius:0;
+  }
+ [dir="rtl"] .codeclass{
+    float: right;
+     border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  } 
+  .datetime-text{
+    padding: 15px;
+    float: left;
+    min-width: 100%;
+    text-align: center;
+  }

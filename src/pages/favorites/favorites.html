@@ -25,9 +25,9 @@
               <ion-col col-2 *ngFor="let icon of icons(favorite.rate); let i = index" (click)="customerRate(favorite.salon_id,i+1)">
                 <ion-icon [name]="icon" ></ion-icon>
               </ion-col>
-                  <ion-col col-2>
-                    <ion-icon ios="ios-home" md="md-home"></ion-icon>
-                  </ion-col>
+              <ion-col col-2>
+                <ion-icon style=" color: grey;" name="trash" (click)="delFavorite(favorite.favourite_id)"></ion-icon>
+              </ion-col>
             </ion-row>
          </div>
       </ion-col>

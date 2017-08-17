@@ -6,17 +6,15 @@ page-servicedetails {
     text-align: center;
     border-bottom: 1px solid lightgray;
     ion-icon{
-        
         padding-left:17px;
         float:left;
         color: lightgray;
-
-
+        font-size: 30px;
     }
     h6{
         margin: 0;
         color:#b32470;
-        font-size: 1.2rem;
+        font-size: 20px ;
     }
 }
 .servrow{
@@ -27,9 +25,9 @@ page-servicedetails {
     padding-left: 17px;
 }
  p{
-        margin: 0;
-        color: gray;
-        font-size: 11px;
+        margin: 5px;
+         color: #222;
+         font-size: 17px;
 
     }
 
@@ -39,8 +37,8 @@ page-servicedetails {
         width: 90%;
         margin: 35px auto;
         border: 1px solid lightgray;
-     
-  }  
+
+  }
 
   .button{
     color:black;

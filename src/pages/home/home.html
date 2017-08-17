@@ -48,24 +48,16 @@
 
  <ion-slides dir="ltr" *ngIf="khadmat != 'salons' && khadmat != 'homeserveices'">
 
-  <ion-slide style="background-image:url('assets/imgs/a.jpg')">
-    <h2>Slide 1</h2>
-  </ion-slide>
-
-  <ion-slide style="background-image:url('assets/imgs/s.jpg')">
-    <h2>Slide 2</h2>
-  </ion-slide>
-
-   <ion-slide style="background-image:url('assets/imgs/d.jpg')">
-    <h2>Slide 3</h2>
+  <ion-slide *ngFor="let slider of sliders">
+   <img [src]="slider.picpath">
   </ion-slide>
 </ion-slides>
 
 
 
 
-<div [ngSwitch]="khadmat">
-  <div *ngSwitchDefault >
+<div [ngSwitch]="khadmat" style="height: 80%;overflow: scroll">
+  <div *ngSwitchDefault>
       <div class="contoffer">
        <h6><img src="assets/imgs/percentage.png">  {{'Month Offers' | translate}} <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon></h6>
         <ion-scroll direction="y">
@@ -84,17 +76,18 @@
             <img *ngFor="let designer of designers" [src]="designer.picpath" (click)="openSalon(designer.salon_id)">
         </ion-scroll>
     </div>
-      <div class="contoffer">
-        <h6><img src="assets/imgs/barber.png">{{'Main Services' | translate}} <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon></h6>
-          <ion-scroll direction="y">
-            <img *ngFor="let service of services" [src]="service.picpath">
-        </ion-scroll>
-      </div>
+    <div class="contoffer">
+      <h6><img src="assets/imgs/barber.png">{{'Salons' | translate}} <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon></h6>
+        <ion-scroll direction="x">
+          <img *ngFor="let salon of salons" [src]="salon.picpath" (click)="salonDetails(salon.salon_id)">
+      </ion-scroll>
+    </div>
   </div>
 
-  <div *ngSwitchCase="'salons'">
-    <ion-row  class="salonsrow">
 
+
+  <div *ngSwitchCase="'salons'" >
+    <ion-row  class="salonsrow">
       <ion-col *ngFor="let salon of salons" col-6>
         <div>
         <img (click)="salonDetails(salon.salon_id)" [src]="salon.picpath" >
@@ -110,16 +103,12 @@
           </ion-col>
         </ion-row>
          </div>
-
-
-
-
-
-
-
       </ion-col>
-
     </ion-row>
+
+
+
+
 
   </div>
 
@@ -127,64 +116,82 @@
 
 
     <div *ngSwitchCase="'homeserveices'">
-       <ion-row class="salonsrow">
-
-       <ion-col *ngFor="let hservice of homeService" col-6>
-        <div>
-        <img [src]="hservice.picpath">
-        <!--<span>{{hservice.designer}}</span>-->
-        <p>{{hservice.job}}</p>
-        <ion-row>
-          <ion-col col-1>
-            <ion-icon ios="ios-star" md="md-star"></ion-icon>
-          </ion-col>
-          <ion-col col-1>
-             <ion-icon ios="ios-star" md="md-star"></ion-icon>
-          </ion-col>
-          <ion-col col-1>
-             <ion-icon ios="ios-star" md="md-star"></ion-icon>
-          </ion-col>
-          <ion-col col-1>
-             <ion-icon ios="ios-star" md="md-star"></ion-icon>
-          </ion-col>
-          <ion-col col-1>
-             <ion-icon ios="ios-star" md="md-star"></ion-icon>
-          </ion-col>
-          <ion-col col-7></ion-col>
-
+        <ion-row class="salonsrow">
+          <ion-col *ngFor="let hservice of homeService" col-6 (click)="salonDetails(hservice.salon_id)">
+            <div>
+              <img [src]="hservice.picpath">
+              <!--<span>{{hservice.designer}}</span>-->
+              <p>{{hservice.title}}</p>
+              <ion-row>
+                <ion-col col-1>
+                  <ion-icon ios="ios-star" md="md-star"></ion-icon>
+                </ion-col>
+                <ion-col col-1>
+                  <ion-icon ios="ios-star" md="md-star"></ion-icon>
+                </ion-col>
+                <ion-col col-1>
+                  <ion-icon ios="ios-star" md="md-star"></ion-icon>
+                </ion-col>
+                <ion-col col-1>
+                  <ion-icon ios="ios-star" md="md-star"></ion-icon>
+                </ion-col>
+                <ion-col col-1>
+                  <ion-icon ios="ios-star" md="md-star"></ion-icon>
+                </ion-col>
+                <ion-col col-7></ion-col>
+              </ion-row>
+            </div>
+           </ion-col>
         </ion-row>
-         </div>
-      </ion-col>
 
-
-    </ion-row>
+      <!--<div class="footerdiv" style="position:fixed;bottom:0">
+          <ion-row style="padding: 8px 0;">
+            <ion-col col-3 (click)="showMap()">
+              <a><ion-icon ios="ios-navigate" md="md-navigate" ></ion-icon></a><br>
+              <p>{{ 'Map' | translate}}</p>
+            </ion-col>
+            <ion-col col-3 (click)="showSearch()">
+              <a>  <ion-icon ios="ios-arrow-round-down" md="md-arrow-round-down"></ion-icon>
+                <ion-icon ios="ios-list" md="md-list"></ion-icon>
+              </a><br>
+              <p>{{ 'Sort' | translate}}</p>
+            </ion-col>
+            <ion-col col-3 (click)="showAppointment()">
+              <a><ion-icon ios="ios-clock" md="md-clock"></ion-icon></a><br>
+              <p>{{ 'Appointment' | translate}}</p>
+            </ion-col>
+            <ion-col col-3 (click)="showNotification()">
+              <a><ion-icon ios="ios-notifications" md="md-notifications"></ion-icon></a><br>
+              <p>{{ 'Notification' | translate}}</p>
+            </ion-col>
+          </ion-row>
+      </div>-->
     </div>
-
-
 </div>
 
+
+<div *ngIf="khadmat == 'homeserveices' || khadmat == 'salons'" class="footerdiv" style="position:fixed;bottom:0">
+        <ion-row style="padding: 8px 0;">
+          <ion-col col-3 (click)="showMap()">
+            <a><ion-icon ios="ios-navigate" md="md-navigate" ></ion-icon></a><br>
+            <p>{{ 'Map' | translate}}</p>
+          </ion-col>
+          <ion-col col-3 (click)="showSearch()">
+            <a>  <ion-icon ios="ios-arrow-round-down" md="md-arrow-round-down"></ion-icon>
+              <ion-icon ios="ios-list" md="md-list"></ion-icon>
+            </a><br>
+            <p>{{ 'Sort' | translate}}</p>
+          </ion-col>
+          <ion-col col-3 (click)="showAppointment()">
+            <a><ion-icon ios="ios-clock" md="md-clock"></ion-icon></a><br>
+            <p>{{ 'Appointment' | translate}}</p>
+          </ion-col>
+          <ion-col col-3 (click)="showNotification()">
+            <a><ion-icon ios="ios-notifications" md="md-notifications"></ion-icon></a><br>
+              <p>{{ 'Notification' | translate}}</p>
+          </ion-col>
+        </ion-row>
+    </div>
 </ion-content>
 
-<ion-footer  >
-  <ion-row style="padding: 8px 0;">
 
-    <ion-col col-3 (click)="showMap()">
-      <a><ion-icon ios="ios-navigate" md="md-navigate" ></ion-icon></a><br>
-      <p>{{ 'Map' | translate}}</p>
-    </ion-col>
-    <ion-col col-3 (click)="showSearch()">
-      <a>  <ion-icon ios="ios-arrow-round-down" md="md-arrow-round-down"></ion-icon>
-        <ion-icon ios="ios-list" md="md-list"></ion-icon>
-      </a><br>
-      <p>{{ 'Sort' | translate}}</p>
-    </ion-col>
-    <ion-col col-3 (click)="showAppointment()">
-      <a><ion-icon ios="ios-clock" md="md-clock"></ion-icon></a><br>
-      <p>{{ 'Appointment' | translate}}</p>
-    </ion-col>
-    <ion-col col-3 (click)="showNotification()">
-      <a><ion-icon ios="ios-notifications" md="md-notifications"></ion-icon></a><br>
-        <p>{{ 'Notification' | translate}}</p>
-    </ion-col>
-  </ion-row>
-</ion-footer>

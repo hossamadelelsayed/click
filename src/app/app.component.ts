@@ -80,8 +80,8 @@ export class MyApp {
       { title: 'SignUp', icon: 'log-in',component: Signup },
       { title: 'Login', icon: 'log-in',component: Login},
       { title: 'Contact US', icon: 'contacts',component: Contactus },
-      { title: 'About Click', icon: 'contacts',component: Aboutclick },
-      { title: 'Terms', icon: 'contacts',component: Terms },
+      { title: 'About Click', icon: 'alert',component: Aboutclick },
+      { title: 'Terms', icon: 'document',component: Terms },
       { title: 'Map', icon: 'map',component: Map },
       { title: 'Lang', icon: 'home',component: Lang }
     ];
@@ -92,10 +92,10 @@ export class MyApp {
       { title: 'Notification', icon: 'alert',component: Notification},
       { title: 'Appointment', icon: 'list-box',component: Appointment},
       { title: 'Contact US', icon: 'contacts',component: Contactus },
-      { title: 'About Click', icon: 'contacts',component: Aboutclick },
-      { title: 'Terms', icon: 'contacts',component: Terms },
+      { title: 'About Click', icon: 'alert',component: Aboutclick },
+      { title: 'Terms', icon: 'document',component: Terms },
       { title: 'Lang', icon: 'home',component: Lang },
-      { title: 'LogOut', icon: 'home',component: Home }
+      { title: 'LogOut', icon: 'exit',component: Home }
     ];
   }
   openPage(p:any){

@@ -10,7 +10,7 @@ import {CommonService} from "../../providers/common-service";
   templateUrl: 'favorites.html',
 })
 export class Favorites {
-  public favorites = [];
+  public favorites : any[] = [];
   constructor(public navCtrl: NavController, public navParams: NavParams ,
               public customerService : CustomerService , public commonService : CommonService) {
 
@@ -20,6 +20,10 @@ export class Favorites {
     console.log('ionViewDidLoad Favorites');
   }
   ionViewWillEnter()
+  {
+    this.getFavorites();
+  }
+  getFavorites()
   {
     this.customerService.getFavorites().subscribe((res)=>{
       this.favorites = res ;
@@ -51,5 +55,17 @@ export class Favorites {
     }
 
   }
-
+  delFavorite(favorite_id : number)
+  {
+    this.customerService.delFavorite(favorite_id).subscribe((res)=>{
+      if(res.favorite_id != null)
+      {
+        this.commonService.successToast();
+        this.favorites = this.favorites.filter((fav) => {
+          return (fav.favourite_id != favorite_id);
+        });
+      }
+      else this.commonService.errorToast();
+    });
+  }
 }

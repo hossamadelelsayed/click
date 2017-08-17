@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>المواعيد</ion-title>
+    <ion-title>{{ 'Appointment' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -16,12 +16,12 @@
 <ion-content>
   <div *ngFor="let order of history" class="divcont" dir="rtl">
     <ion-row class="headrow">
-      <ion-col col-6><p>صالون كليك</p></ion-col>
+      <ion-col col-6><p>{{ 'Appointment' | translate}}</p></ion-col>
       <ion-col col-6>
-        <ul>
-          <li *ngIf="order.status == 'pending'">غير مؤكد</li>
-          <li *ngIf="order.status != 'pending'" style="color:green"> مؤكد</li>
-        </ul>
+        <!--<ul>-->
+          <!--<li *ngIf="order.status == 'pending'">غير مؤكد</li>-->
+          <!--<li *ngIf="order.status != 'pending'" style="color:green"> مؤكد</li>-->
+        <!--</ul>-->
       </ion-col>
     </ion-row>
 

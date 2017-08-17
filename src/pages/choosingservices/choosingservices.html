@@ -23,10 +23,10 @@
              <!--<h6>السعر</h6>-->
           <!--</ion-col>-->
           <ion-col col-4 class="order">
-             <h6>العربون</h6>
+             <h6>{{'Deposit' |translate}}</h6>
           </ion-col>
           <ion-col col-4 class="order">
-            <h6>المصمم</h6>
+            <h6>{{'Designer' |translate}}</h6>
           </ion-col>
         </ion-row>
 
@@ -42,7 +42,7 @@
           </ion-col>
            <ion-col col-4>
              <ion-select (ionChange)="customerOrderDesignerUpdate(order.orders_id,order.designer_id)" [(ngModel)]="order.designer_id" >
-               <ion-option *ngFor="let designer of salonDesigners" value="{{designer.designer_id}}" >{{designer.name}}</ion-option>
+               <ion-option *ngFor="let designer of salonDesigners" value="{{designer.designer_id}}">{{designer.name}}</ion-option>
              </ion-select>
            </ion-col>
         </ion-row>
@@ -56,18 +56,18 @@
           <ion-col col-4>
           </ion-col>
           <ion-col col-4 class="order">
-            <p>{{orderDetails?.total}} ريال</p>
+            <p>{{orderDetails?.total}} {{'SAR' |translate}}</p>
           </ion-col>
         </ion-row>
 
-         <ion-row>
+         <ion-row  (click)="coponPage()">
           <ion-col col-4>
             <p>{{ 'Add Discount Coupon' | translate}}</p>
           </ion-col>
           <ion-col col-4>
           </ion-col>
           <ion-col col-4 class="order">
-           <ion-icon ios="ios-arrow-forward" md="md-arrow-forward" (click)="coponPage()"></ion-icon>
+           <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
           </ion-col>
         </ion-row>
       <ion-row>
@@ -77,7 +77,7 @@
            <ion-col col-4>
            </ion-col>
            <ion-col col-4 class="order">
-             <p>{{orderDetails?.discount}}  ريال</p>
+             <p>{{orderDetails?.discount}}  {{'SAR' |translate}}</p>
            </ion-col>
          </ion-row>
           <ion-row>
@@ -87,7 +87,7 @@
           <ion-col col-4>
           </ion-col>
           <ion-col col-4 class="order">
-            <p>{{orderDetails?.total - orderDetails?.discount}}  ريال</p>
+            <p>{{orderDetails?.total - orderDetails?.discount}}  {{'SAR' |translate}}</p>
           </ion-col>
         </ion-row>
 
@@ -105,26 +105,33 @@
   </div>
 
  <div dir="rtl" class="contdiv">
+      <ion-row>
+        <ion-col col-12 style="padding: 0">
+           <!--<button icon-left ion-item style="width:100%;margin-right:0"> 
+               <ion-label style="color:gray;margin:0;">{{ 'Date' | translate}}</ion-label>
+               <ion-datetime  displayFormat="YYYY-MMMM-DD" [(ngModel)]="date"></ion-datetime>
+               <ion-icon item-end name="arrow-dropdown"></ion-icon>
+          </button>-->
+           <!--<button style="width: 100%; text-align: start !important" ion-button clear>-->
+             <ion-label style="color:gray;margin: 10px 40px 0;">{{ 'Date' | translate}}</ion-label>
+             <ion-datetime  icon-left displayFormat="YYYY-MMMM-DD" [(ngModel)]="date" placeholder="July-06-2017"></ion-datetime>
+             
+
+        </ion-col>
+        </ion-row>
      <ion-row>
-          <ion-col col-4>
-            <p>{{ 'Date' | translate}}</p>
+          <ion-col col-12 style="padding: 0"> 
+            <!--<button ion-datetime icon-left ion-item style="width:100%;margin-right:0">
+                <ion-label style="color:gray;margin:0;">{{ 'Time' | translate}}</ion-label>
+                <ion-datetime displayFormat="hh:mm:A" [(ngModel)]="time"></ion-datetime>
+                <ion-icon item-end name="arrow-dropdown" ></ion-icon>
+           </button>-->
+   <ion-label style="color:gray;margin: 10px 40px 0;">{{ 'Time' | translate}}</ion-label>
+    <ion-datetime displayFormat="hh:mm:A" [(ngModel)]="time"  placeholder="PM:00:00"></ion-datetime>
+           
           </ion-col>
-         <ion-col col-4></ion-col>
-          <ion-col col-4 class="order">
-            <ion-icon name="arrow-dropdown"></ion-icon>
-          <ion-datetime displayFormat="YYYY-MM-DD" [(ngModel)]="date"></ion-datetime>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col col-4>
-            <p>{{ 'Time' | translate}}</p>
-          </ion-col>
-          <ion-col col-4></ion-col>
-          <ion-col col-4 class="order">
-            <ion-icon name="arrow-dropdown"></ion-icon>
-           <ion-datetime displayFormat="HH:mm" [(ngModel)]="time"></ion-datetime>
-          </ion-col>
-        </ion-row>
+        
+    </ion-row>
        <ion-row *ngIf="service_code == salonService.HomeServiceCode">
          <ion-col col-4>
            <p>{{ 'Determine Your Location' | translate}}</p>
@@ -139,12 +146,17 @@
   <div dir="rtl" class="paymentmethod">
      <ion-row class="servrow">
           <ion-col col-12>
-            <h6 style="color:#b32470">{{ 'Payment Method' | translate}}</h6>
+            <h6 style="color:#b32470;font-size:20px">{{ 'Payment' | translate}}</h6>
           </ion-col>
     </ion-row>
-   <ion-list radio-group [(ngModel)]="payment">
+   <ion-list>
         <ion-item>
-          <ion-label>{{ 'Balance' | translate}}</ion-label>
+          <ion-label>{{ 'Cash' | translate}}</ion-label>
+        </ion-item>
+   </ion-list>      
+   <!--<ion-list radio-group [(ngModel)]="payment">
+        <ion-item>
+          <ion-label>{{ 'Cash' | translate}}</ion-label>
           <ion-radio checked="true" value="cash"></ion-radio>
         </ion-item>
 
@@ -152,7 +164,7 @@
           <ion-label>{{ "Paypal Account" | translate}}</ion-label>
           <ion-radio value="paypal"></ion-radio>
         </ion-item>
-     </ion-list>
+     </ion-list>-->
   </div>
   <button class="terms" ion-button clear (click)="terms()">
     <ion-icon style="padding: 0 10px;" ios="ios-arrow-back" md="md-arrow-back" ></ion-icon>

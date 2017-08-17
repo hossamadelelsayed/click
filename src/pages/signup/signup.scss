@@ -6,14 +6,14 @@ page-signup {
   .titlediv{
     height: 130px;
     text-align: center;
-    position: fixed;
+   
     width: 100%;
     margin-left: auto;
-    top: 5%;
     color: #ffaa09;
     margin-right: auto;
     h2{
       font-size: 3.4rem;
+      padding-top: 30px;
     }
   }
   .forma{
@@ -26,17 +26,23 @@ page-signup {
     top: 23%;
   }
 
-  .formitem{
+  .formitem , .callitem ,.codeclass{
     background-repeat:no-repeat;
     background-position:96%;
     margin-right: auto;
     margin-left: auto;
     padding: 0 20px;
-    border: 1;
     border-radius: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
-  .button{
+  .callitem{
+    width: 70%;
+  }
+  .codeclass{
+    width: 30%;
+    text-align: center;
+  }
+  .register{
     color: black;
     height: 50px;
     font-size: 25px;
@@ -48,12 +54,24 @@ page-signup {
 
   }
   .skip{
-     margin: 4px 15px;
+    margin: 4px 15px;
     float: right;
     border: 1px solid white;
     border-radius: 20px;
     width: 30%;
     color: white;
+}
+
+.input-cover{
+  position: static;
+}
+
+ion-input{ 
+  p{
+       width: 20% !important;
+  float: right;
+  }
+ 
 }
 
 }
